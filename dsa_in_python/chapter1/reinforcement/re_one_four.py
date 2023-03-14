@@ -8,7 +8,6 @@ def sum_of_squares(n):
 
     sum = 0
     for num in range(n):
-        if num < n:
-            sum += num ** 2
+        sum += num ** 2
 
     return sum
