@@ -9,6 +9,3 @@ def is_multiple(n, m):
 		elif n < m * i:
 			return False
 		i += 1;
-
-	# reached the end of range means n not a multiple of m
-	return False
