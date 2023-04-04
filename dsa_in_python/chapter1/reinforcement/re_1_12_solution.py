@@ -11,8 +11,8 @@ def my_choice(data):
     :return: the first random value found
     '''
 
-    min_value = min(data)
-    max_value = max(data)
+    min_value = min(data)  # get min value
+    max_value = max(data)  # get max value
 
     while True:
         result = randrange(min_value, max_value)
