@@ -1,0 +1,14 @@
+# pseudo-code for inverting the numbers in a list the way they were arranged
+
+my_list = [elements of list]
+length_of_my_list = get the length of my_list
+start_index = length_of_my_list
+end_index = get half of start_index
+step = store last index value of my_list
+swap_index = start from zero
+
+for index in range(start, end, step):
+    temp = value of list index in my_list
+    my_list[index] = value of swap_index in my_list
+    my_list swap_index list position = temp
+    increment swap_index by 1
