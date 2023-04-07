@@ -14,6 +14,9 @@ def calculate(rvalue, op, lvalue):
     elif op == "*":
         return rvalue * lvalue
     elif op == "/":
+        if lvalue == 0:
+            raise ZeroDivisionError("Division by zero")
+
         return rvalue / lvalue
 
 def simple_calculator():
