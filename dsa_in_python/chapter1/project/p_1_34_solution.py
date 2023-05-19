@@ -1,6 +1,10 @@
 from random import shuffle
 from random import randint
 
+'''
+    Prints 100 lines of hte statement "I will never spam my friends again"
+    Randomly making 8 errors on 8 lines of the statement
+'''
 # get the number of lines to print
 max_count = 100
 
@@ -41,7 +45,7 @@ for line_no in range(1, 101):
             # concatenate the characters again to form a string
             for c in rand_word:
                 new_word += c
-            # check to make sure it mees teh condition of printing the random number
+            # check to make sure it meets the condition of printing the random number
             # number of uniquely generated random number <= 8
             if len(random_word_generated) < 8 and new_word not in random_word_generated:
                 random_word_generated.append(new_word)
