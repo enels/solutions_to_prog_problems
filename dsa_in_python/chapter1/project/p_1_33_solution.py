@@ -58,3 +58,6 @@ def handheld_calculator():
             result = calculate(result, user_input[i], int(user_input[i+1]))
 
     return result
+
+if __name__ == "__main__":
+    print(handheld_calculator())

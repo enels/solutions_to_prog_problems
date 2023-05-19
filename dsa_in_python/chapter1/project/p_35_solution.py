@@ -42,3 +42,6 @@ def birthday_paradox():
     probability = num_of_required_outcome / num_of_total_outcome
 
     return probability
+
+if __name__ == "__main__":
+    print(birthday_paradox())

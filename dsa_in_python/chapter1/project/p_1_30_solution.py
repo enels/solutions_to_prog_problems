@@ -14,3 +14,6 @@ def twos(n):
         n //= 2
 
     return count
+
+if __name__ == "__main__":
+    twos(15)

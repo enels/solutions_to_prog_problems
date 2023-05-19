@@ -68,3 +68,6 @@ def change(charge, given):
 
     # return the change in tuples of list
     return change_bills, cent_bills
+
+if __name__ == "__main__":
+    change(120, 200)
