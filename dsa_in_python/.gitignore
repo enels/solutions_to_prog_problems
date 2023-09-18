@@ -1,3 +1,4 @@
 .idea/inspectionProfiles/
-.idea/*.*
-sample_codes/*.*
+.idea/
+sample_codes/
+creativity/__pycache__/
