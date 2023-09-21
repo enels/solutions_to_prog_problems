@@ -1,4 +1,5 @@
 .idea/inspectionProfiles/
 .idea/*.*
+.idea/dsa_in_python.iml
 sample_codes/
 chapter2/creativity/__pycache__/
