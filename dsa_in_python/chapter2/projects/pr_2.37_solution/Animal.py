@@ -34,3 +34,6 @@ class Animal:
 
     def get_gender(self):
         return self._gender
+
+    def get_strength(self):
+        return self._strength
