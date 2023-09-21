@@ -1,4 +1,4 @@
 .idea/inspectionProfiles/
-.idea/
+.idea/*.*
 sample_codes/
-creativity/__pycache__/
+chapter2/creativity/__pycache__/
