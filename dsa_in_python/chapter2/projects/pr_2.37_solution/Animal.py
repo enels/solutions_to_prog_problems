@@ -8,7 +8,8 @@ class Animal:
     def __init__(self, initial_position):
         self._position = initial_position
         self._step = 0
-        
+        self._gender = choice(['M', 'F'])
+        self._strength = random()
 
     def set_position(self, val):
         self._position += val
