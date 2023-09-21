@@ -60,6 +60,7 @@ class Ecosystem:
         Change the position of the animals if they are the same
         """
 
+        river_len  = len(self._river)
         change = False
         animal_position_index = -1  # index position for animal in river list
         while change == False:
@@ -101,7 +102,7 @@ class Ecosystem:
                                 self._river[m] = None   # destroy it
 
                         # if both animals that coincided are the same type
-                        elif type(self._river[n]) == type(self._river[m])
+                        elif type(self._river[n]) == type(self._river[m]):
                             # different gender
                             if self._river[n].get_gender() != self._river[m].get_gender():
                                 # if they are of the same type and the gender are different
@@ -118,7 +119,7 @@ class Ecosystem:
                             # the same gender
                             elif self._river[n].get_gender() == self._river[m].get_gender():
                                 # destroy animal with a lower strength
-                                self._destroy_lower_strength_animal(False, n, m)
+                                self._destroy_lower_strength_animal(n, m)
 
             else:
                 # put animal in the new position if there are no coincidence
