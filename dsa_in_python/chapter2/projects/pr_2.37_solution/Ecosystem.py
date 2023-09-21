@@ -49,11 +49,34 @@ class Ecosystem:
                 # change the instance position of the animal with the step taken (animal's decision making move)
                 self._set_new_position(n)
 
+    def _destroy_lower_strength_animal(self, n, m):
+        # find the one with the highest strength
+        if self._river[n].get_strength() > self._river[m].get_strength():
+            # destroy the one with a lesser strength
+            self._river[m] = None
+
+    def _create_new_animal(self, same_gender, n, m):
+        """
+        Change the position of the animals if they are the same
+        """
+
+        change = False
+        animal_position_index = -1  # index position for animal in river list
+        while change == False:
+            animal_position_index += 1
+            if self._river[animal_position_index] == None and animal_position_index < river_len:
+                # get the type of animal that coincided
+                if isinstance(self._river[m], Bear):
+                    self._river[animal_position_index] = Bear(animal_position_index)  # creates a new Bear
+                else:
+                    self._river[animal_position_index] = Fish(animal_position_index)  # creates a new Fish
+                # a signal that a position with None type has change to an instance of the collided animals
+                change = True
+
     def move_animals(self):
         """
         Move the qquatic animals
         """
-
         # length of river
         river_len = len(self._river)
 
@@ -89,18 +112,13 @@ class Ecosystem:
                                 self._river[n].set_position(n)
                                 self._river[m].set_position(m)
 
-                                change = False
-                                animal_position_index = -1  # index position for animal in river list
-                                while change == False:
-                                    animal_position_index += 1
-                                    if self._river[animal_position_index] == None and animal_position_index < river_len:
-                                        # get the type of animal that coincided
-                                        if isinstance(self._river[m], Bear):
-                                            self._river[animal_position_index] = Bear(animal_position_index)    # creates a new Bear
-                                        else:
-                                            self._river[animal_position_index] = Fish(animal_position_index)    # creates a new Fish
-                                        # a signal that a position with None type has change to an instance of the collided animals
-                                        change = True
+                                # create a new instance of the animal
+                                self._create_new_animal(False, n, m)
+
+                            # the same gender
+                            elif self._river[n].get_gender() == self._river[m].get_gender():
+                                # destroy animal with a lower strength
+                                self._destroy_lower_strength_animal(False, n, m)
 
             else:
                 # put animal in the new position if there are no coincidence
