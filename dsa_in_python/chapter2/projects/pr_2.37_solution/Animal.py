@@ -31,3 +31,6 @@ class Animal:
         """
         step = choice([-1, 1])
         self.set_position(step)
+
+    def get_gender(self):
+        return self._gender
