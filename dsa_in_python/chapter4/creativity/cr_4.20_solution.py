@@ -7,6 +7,8 @@ def ranking(s, k, less_than_k=[], greater_than_k=[], next_index=0):
     :param k: a bridge between the numbers (< k on left, > k on the right)
     :param next_index: next integer index in s
     :return: arranged integer values
+
+    Running time: O(n - 1)
     """
 
     # base case
@@ -14,12 +16,12 @@ def ranking(s, k, less_than_k=[], greater_than_k=[], next_index=0):
         return less_than_k + greater_than_k
 
     if s[next_index] < k:
-        less_than_k.append(s[next_index])
+        less_than_k.append(s[next_index]) # O(1)
         return ranking(s, k, less_than_k, greater_than_k, next_index + 1)
     elif s[next_index] == k:
         return ranking(s, k, less_than_k, greater_than_k, next_index + 1)
     else:
-        greater_than_k.append(s[next_index])
+        greater_than_k.append(s[next_index]) # O(1)
         return ranking(s, k, less_than_k, greater_than_k, next_index + 1)
 
 
