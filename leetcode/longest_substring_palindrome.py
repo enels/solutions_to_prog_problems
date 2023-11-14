@@ -12,14 +12,14 @@ def longestPalindrome(s):
     max_palin_str = max_sub_palin = ""
 
 
-    for n in range(s_len):
+    for n in range(s_len-1):
         start_c = s[n]
         inner_c = ""
         for c in s[n + 1:]:
             if c != start_c:
                 inner_c += c
             else:
-                inner_c += c
+                inner_c += c # last character encountered
                 start_c += inner_c
 
                 # check if it's a palindrome
@@ -40,7 +40,10 @@ def longestPalindrome(s):
                     max_palin_str = start_c
                     max_len_sub_palin = len(start_c)
 
+                # reassign it to the beginning of the current substring
+                start_c = s[n]
+
     return max_palin_str
 
 if __name__ == "__main__":
-    print(longestPalindrome("bbabbbcdea"))
+    print(longestPalindrome("bddaadddaaccbbb"))
