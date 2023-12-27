@@ -10,10 +10,10 @@ class Solution:
         for n in range(colors_len - 1):
             if colors[n] == colors[n+1]:
                 # if comparing the last color
-                if n+1 == colors_len-1:
-                    total_time += neededTime[n+1]
-                else:
+                if neededTime[n] < neededTime[n+1]:
                     total_time += neededTime[n]
+                else:
+                    total_time += neededTime[n+1]
 
         
-        return total_tim
+        return total_time
