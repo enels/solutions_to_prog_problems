@@ -27,8 +27,12 @@ class Solution:
 
                 for i in range(index+1, height_length):
                     count += 1
+                    # if the current bar is <= the iterating one
                     if height[i] <= height[index]:
                         area = height[i] * count
+                    # if the current bar is > the iterating one
+                    if height[i] > height[index]:
+                        area = height[index] * count
 
             # compare the area with the maximum area
             if area > max_area:
