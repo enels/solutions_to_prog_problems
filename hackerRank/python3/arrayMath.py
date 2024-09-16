@@ -8,32 +8,34 @@ m = int(user_input[2])
 
 # create the list to store the array values
 arr_list = list()
+a_list = list()
+b_list = list()
 
 n += 1
 # collect the array values
-for i in range(n):
-    arr_list.append(input())
+for i in range(n - 1):
+    a_list.append(input())
 
-arr_list_2 = list()
+for i in range(n - 1):
+    a_list.append(input())
 
-# get the number of rows
-for i in range(n):
-    arr_list_2.append(list())
+a = list()
 
-m += m - 1
-print(arr_list_2)
-# cast the integer string in the array into a pure int
-for i in range(n):
+for i in range(n - 1):
     for j in range(m):
-        if arr_list[i][j].isdigit():
-            arr_list_2[i].append(int(arr_list[i][j]))
+        if a_list[i][j].isdigit():
+            a[i].append(int(a_list[i][j]))
+    b_list.append(input())
 
-print(arr_list_2)
-# create a list to store the various results
-result = list(list())
+#(for i in range(n - 1):
+#    b_numpy.append(list())
+#    a_numpy.appedn(list())
 
-# convert to numpy array and add
-for i in range(n-1):
-    result.append(numpy.array(arr_list_2[0]) - numpy.array(arr_list_2[i+1]))
+result = list()
 
-print("[" + str(result[0]) + "]")
+for i in range(n - 1):
+    result.append(numpy.array(b_list[i]) + numpy.array(a_list[i]))
+    print(result);
+
+#for i in range(n - 1):
+#    result.append(numpy.array(b_numpy[i]) - numpy.array(b_numpy[i]))
