@@ -7,71 +7,55 @@ string = input().split()
 # extract the words into words and size to split the words
 word, size = string[0], int(string[1])
 
-# permuatate the words in the specified length(size)
-obj = combinations(word, size)
-
-# stores the character combination
-result = []
-
 # stores the word from each tuple
 s = ""
 
-# print out the unique possible charcters
-# stores the unique characters
-char_set = set()
+# stores the temporary result
+temp_result = list()
 
-for char in word:
-    char_set.add(char)
-
-# append the result
-for value in char_set:
-    result.append(value)
-
-# get the length of the unique characters
-result_len = len(result)
-
-# sort the unique characters
-result.sort()
-
-
-# converts the iteratable object to a list
-obj_list = list(obj)
-
-result2 = list()
+# stores the final result
+final_result = list()
 
 # store the
-for obj_idx in range(len(obj_list)):
-    for char in obj_list[obj_idx]:
+for obj_idx in range(1, size+1):
+    # permuatate the words in the specified length(size)
+    obj = combinations(word, obj_idx)
+    # converts the iteratable object to a list
+    obj_list = list(obj)
+
+    # iterate through each set of tuple value in list
+    for chars_tup in obj_list:
         # concat each character in the tuples
-        s += char
 
-        # convert the string to list obj
-        s_list = list(s)
+        # iterate through each set of character in tuple to form a word
+        for char in chars_tup:
+            s += char
 
-        # sort the list
-        s_list.sort()
+        # sort the word
+        sorted_s = sorted(s)
 
-        # reinitialize the string to collec the sorted list
+        # for a new sorted string from the list formed from the sorted string
         s = ""
-
-        # re-concantenate the new sorted list in a string
-        for c in s_list:
+        for c in sorted_s:
             s += c
 
-    # stores the word in the result
-    result2.append(s)
+        # stores the word in the result
+        temp_result.append(s)
 
-    # reinitializes the string container to store the tuple values
-    s = ""
+        # reinitializes the string container to store the tuple values
+        s = ""
 
-result2.sort()
+    # sort the result
+    temp_result.sort()
 
-# append the sorted result to the previous one
-for r in result2:
-    result.append(r)
+    # append the result to the final output to maintain the sorted order
+    for r in temp_result:
+        final_result.append(r)
 
-#result[result_len:].sort()
+    # re-initialize the result for fresh input from another combination of the word
+    temp_result = list()
+
 
 # print out the result
-for w in result:
+for w in final_result:
     print(w)
