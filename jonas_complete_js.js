@@ -216,14 +216,14 @@ let bookAuthor = 'unknown';
 //({title: bookTitle, author: bookAuthor} = books[0]);
 
 // 2.5
-const {thirdParty: {goodreads: {ratings: bookRating}}} = books[0];
+// const {thirdParty: {goodreads: {ratings: bookRating}}} = books[0];
 
 
-// 2.6
-function printBookInfo({title: title, author: author, publicationDate: year='year unknown'}) {
+// // 2.6
+// function printBookInfo({title: title, author: author, publicationDate: year='year unknown'}) {
 	
-	console.log(`${title} by ${author}, ${year.split("-")[0]}`);
-}
+// 	console.log(`${title} by ${author}, ${year.split("-")[0]}`);
+// }
 
 // printBookInfo(books[0]);
 // printBookInfo({ title: 'Algorithms', author: 'Robert Sedgewick' });
@@ -246,22 +246,22 @@ const bookAuthors = [...books[0].author];
 }
 */
 
-function spellWord(word) {
-	console.log(...word);
-}
+// function spellWord(word) {
+// 	console.log(...word);
+// }
 
 
-// Rest Pattern and Parameters
-// 4.1
-const [mainKeyword, ...rest] = books[0].keywords;
+// // Rest Pattern and Parameters
+// // 4.1
+// const [mainKeyword, ...rest] = books[0].keywords;
 
-// 4.2
-const {publisher: bookPublisher, ...restOfTheBook} = books[1];
+// // 4.2
+// const {publisher: bookPublisher, ...restOfTheBook} = books[1];
 
-// 4.3
-function printBookAuthorsCount(title, ...authors) {
-	console.log(`The book ${title} has ${authors.length} authors`);
-}
+// // 4.3
+// function printBookAuthorsCount(title, ...authors) {
+// 	console.log(`The book ${title} has ${authors.length} authors`);
+// }
 
 // Short Circuiting
 // 5.1
@@ -452,39 +452,39 @@ const uniqueKeywords = new Set(allKeywords);
 // Wroking with strings
 
 // 15.1
-console.log(books[0].ISBN[6], books[0].ISBN[4], books[0].ISBN[9]);
+// console.log(books[0].ISBN[6], books[0].ISBN[4], books[0].ISBN[9]);
 
-console.log(books[0].ISBN['6'], books[0].ISBN['4'], books[0].ISBN['9'], books[0].ISBN[8]);
-// 15.2
-const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
+// console.log(books[0].ISBN['6'], books[0].ISBN['4'], books[0].ISBN['9'], books[0].ISBN[8]);
+// // 15.2
+// const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
 
-console.log(quote.indexOf("chess"));
+// console.log(quote.indexOf("chess"));
 
-// 15.3
-const word = "boxing";
-console.log(quote.slice(quote.indexOf(word), quote.indexOf(word) + word.length));
+// // 15.3
+// const word = "boxing";
+// console.log(quote.slice(quote.indexOf(word), quote.indexOf(word) + word.length));
 
-// 15.4
-const isContributor = function(authorName) {
-  console.log(authorName.match(/\(Contributor\)/g) ? true : false);
-}
+// // 15.4
+// const isContributor = function(authorName) {
+//   console.log(authorName.match(/\(Contributor\)/g) ? true : false);
+// }
 
-// Working with strings
-// 16.1
-const normalizeAuthorName = function(authorName) {
-  //console.log(authorName.split(" ")[0][0].toUpperCase(), authorName.split(" ")[1][0].toUpperCase());
+// // Working with strings
+// // 16.1
+// const normalizeAuthorName = function(authorName) {
+//   //console.log(authorName.split(" ")[0][0].toUpperCase(), authorName.split(" ")[1][0].toUpperCase());
 
-  let firstName = authorName.split(" ")[0];
-  let lastName = authorName.split(" ")[1];
+//   let firstName = authorName.split(" ")[0];
+//   let lastName = authorName.split(" ")[1];
 
-  firstName = firstName.toLowerCase().slice(0, 1).toUpperCase() + firstName.toLowerCase().slice(1);
-  lastName = lastName.toLowerCase().slice(0, 1).toUpperCase() + lastName.toLowerCase().slice(1);
+//   firstName = firstName.toLowerCase().slice(0, 1).toUpperCase() + firstName.toLowerCase().slice(1);
+//   lastName = lastName.toLowerCase().slice(0, 1).toUpperCase() + lastName.toLowerCase().slice(1);
 
-  console.log(firstName, lastName);
-};
+//   console.log(firstName, lastName);
+// };
 
-// 16. 2
-const newBookTitle = books[1].title.replace("Programs", "Softwares");
+// // 16. 2
+// const newBookTitle = books[1].title.replace("Programs", "Softwares");
 
 // 16.3
 // const logBookTheme = function (bookTitle) {
@@ -520,14 +520,36 @@ const newBookTitle = books[1].title.replace("Programs", "Softwares");
 
 // Working with strings
 // 17.1
-function logBookCategories (categories) {
+// function logBookCategories (categories) {
 
-  const catArr = categories.split(";");
+//   const catArr = categories.split(";");
 
-  for (cat of catArr) {
-    console.log(cat);
-  }
-}
+//   for (cat of catArr) {
+//     console.log(cat);
+//   }
+// }
 
-const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
-logBookCategories(bookCategories);
+// const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+// logBookCategories(bookCategories);
+
+// 17.2
+const getKeywordsAsString = function (books) {
+
+    let keywordStr = "";
+
+    for (const book of books) {
+
+      // to remove duplicates
+      const keywordSet = new Set(book.keywords);
+
+      // convert the set of keywords to an array
+      const keywordArr = [];
+      keywordSet.forEach((word) => keywordArr.push(word));
+
+      keywordStr += keywordArr.join(";");
+    }
+    
+    return keywordStr;
+};
+
+console.log(getKeywordsAsString(books));
