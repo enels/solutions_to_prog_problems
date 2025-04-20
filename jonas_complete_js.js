@@ -519,3 +519,15 @@ const newBookTitle = books[1].title.replace("Programs", "Softwares");
 // }
 
 // Working with strings
+// 17.1
+function logBookCategories (categories) {
+
+  const catArr = categories.split(";");
+
+  for (cat of catArr) {
+    console.log(cat);
+  }
+}
+
+const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
+logBookCategories(bookCategories);
