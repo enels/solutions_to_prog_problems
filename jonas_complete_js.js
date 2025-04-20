@@ -419,9 +419,103 @@ const uniqueKeywords = new Set(allKeywords);
 // console.log(uniqueKeywords);
 
 // Maps: Fundamentals
-const newBook3 = [['title', 'Clean Code'], ['author', 'Robert C. Martin']];
-const bookMap = new Map();
+// const newBook3 = [['title', 'Clean Code'], ['author', 'Robert C. Martin']];
+// const bookMap = new Map();
 
-newBook3.forEach((book) => bookMap.set(book[0], book[1]));
+// newBook3.forEach((book) => bookMap.set(book[0], book[1]));
 
-// 13.2
+// console.log(bookMap);
+
+// // 13.3
+// bookMap.forEach((values) => console.log(`${values}`));
+
+// //bookMap.forEach((x) => console.log(x));
+// console.log(`"${bookMap.get('title')}" by ${bookMap.get('author')}`);
+
+// console.log(bookMap.size);
+
+// if (bookMap.has("author")) {
+//   console.log("The author of the book is known");
+// }
+
+// Map: Iteration
+// 14.1
+//const firstBookMap = new Map(Object.entries(books[0]));
+
+// 14.2
+// for (const [key, value] of firstBookMap) {
+//   if (typeof value === "number") {
+//     console.log(key);
+//   }
+// }
+
+// Wroking with strings
+
+// 15.1
+console.log(books[0].ISBN[6], books[0].ISBN[4], books[0].ISBN[9]);
+
+console.log(books[0].ISBN['6'], books[0].ISBN['4'], books[0].ISBN['9'], books[0].ISBN[8]);
+// 15.2
+const quote = 'A computer once beat me at chess, but it was no match for me at kick boxing';
+
+console.log(quote.indexOf("chess"));
+
+// 15.3
+const word = "boxing";
+console.log(quote.slice(quote.indexOf(word), quote.indexOf(word) + word.length));
+
+// 15.4
+const isContributor = function(authorName) {
+  console.log(authorName.match(/\(Contributor\)/g) ? true : false);
+}
+
+// Working with strings
+// 16.1
+const normalizeAuthorName = function(authorName) {
+  //console.log(authorName.split(" ")[0][0].toUpperCase(), authorName.split(" ")[1][0].toUpperCase());
+
+  let firstName = authorName.split(" ")[0];
+  let lastName = authorName.split(" ")[1];
+
+  firstName = firstName.toLowerCase().slice(0, 1).toUpperCase() + firstName.toLowerCase().slice(1);
+  lastName = lastName.toLowerCase().slice(0, 1).toUpperCase() + lastName.toLowerCase().slice(1);
+
+  console.log(firstName, lastName);
+};
+
+// 16. 2
+const newBookTitle = books[1].title.replace("Programs", "Softwares");
+
+// 16.3
+// const logBookTheme = function (bookTitle) {
+
+//   if (bookTitle.startsWith("Computer")) {
+//     console.log("This book is about computers");
+//   }
+//   else if (bookTitle.includes("Algorithms", "Structures")) {
+//     console.log("This book is about algorithms and data structures");
+//   }
+//   else if (bookTitle.match(/[^(operating)] & ((system) | (System) | (systems) | (Systems))$/g)) {
+//     console.log("This book is about some systems, but definitely not about operating systems")
+//   }
+
+// };
+
+// function logBookTheme(title) {
+  // title = title.toLowerCase();
+// 
+  // if (title.startsWith('computer')) {
+    // console.log('This book is about computers');
+  // } else if (title.includes('algorithms') && title.includes('structures')) {
+    // console.log('This book is about algorithms and data structures');
+  // } else if ((title.endsWith('system') || title.endsWith('systems')) && !title.includes('operating')) {
+    // console.log('This book is about some systems, but definitely not about operating systems');
+  // }
+// }
+// 
+// for (const book of books) {
+  // logBookTheme(book.title);
+  // console.log(book.title);
+// }
+
+// Working with strings
