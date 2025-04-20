@@ -532,24 +532,33 @@ const uniqueKeywords = new Set(allKeywords);
 // const bookCategories = 'science;computing;computer science;algorithms;business;operating systems;networking;electronics';
 // logBookCategories(bookCategories);
 
-// 17.2
-const getKeywordsAsString = function (books) {
+// // 17.2
+// const getKeywordsAsString = function (books) {
 
-    let keywordStr = "";
+//     let keywordStr = "";
 
-    for (const book of books) {
+//     for (const book of books) {
 
-      // to remove duplicates
-      const keywordSet = new Set(book.keywords);
+//       // to remove duplicates
+//       const keywordSet = new Set(book.keywords);
 
-      // convert the set of keywords to an array
-      const keywordArr = [];
-      keywordSet.forEach((word) => keywordArr.push(word));
+//       // convert the set of keywords to an array
+//       const keywordArr = [];
+//       keywordSet.forEach((word) => keywordArr.push(word));
 
-      keywordStr += keywordArr.join(";");
-    }
+//       keywordStr += keywordArr.join(";");
+//     }
     
-    return keywordStr;
+//     return keywordStr;
+// };
+
+// 17.3
+const logBookChapters = function(bookChapters) {
+
+    for (const [key, value] of bookChapters) {
+      console.log(`${key.padEnd(30, "_")} ${value}`);
+    }
 };
 
-console.log(getKeywordsAsString(books));
+const bookChapters = [['The Basics', 14], ['Sorting', 254], ['Searching', 372], ['Graphs', 526], ['Strings', 706]];
+logBookChapters(bookChapters);
